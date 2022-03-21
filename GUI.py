@@ -14,7 +14,6 @@ class savedata(QDialog):
         super(savedata, self).__init__()
         uic.loadUi('savedata.ui', self)
 
-        self.pushButton_Cancel.clicked.connect(self.cancel)
     def cancel(self):
         self.close
 
@@ -48,6 +47,10 @@ class Ui(QtWidgets.QMainWindow):
         self.pushButton_Simpan.clicked.connect(self.save.show)
         self.save.pushButton_OK.clicked.connect(self.simpankecsv)
 
+        self.save.pushButton_Cancel.clicked.connect(self.cancel)
+
+    def cancel(self):
+        self.save.close()
 
     def simpankecsv(self):
 
@@ -58,7 +61,7 @@ class Ui(QtWidgets.QMainWindow):
         data = self.data.convert(self.dataui_NIM, self.dataui_Password)
         self.aa = self.data.kecsv(path, data)
         print(path)
-        self.save.close()
+        self.cancel()
         self.loadpreset()
 
     def finds(self):
