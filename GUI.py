@@ -1,10 +1,23 @@
 from threading import *
 from PyQt5 import QtWidgets, uic
 import sys
-import presensi
-from PyQt5.QtWidgets import QTableWidgetItem, QListWidgetItem
 
+from PyQt5.QtCore import Qt, QCoreApplication
+from PyQt5.QtWidgets import QTableWidgetItem, QListWidgetItem, QMainWindow, QWidget, QLabel, QDialog
+import presensi
+import Data
 import json
+
+
+class savedata(QDialog):
+    def __init__(self):
+        super(savedata, self).__init__()
+        uic.loadUi('savedata.ui', self)
+
+        self.pushButton_Cancel.clicked.connect(self.cancel)
+    def cancel(self):
+        self.close
+
 
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
@@ -12,18 +25,63 @@ class Ui(QtWidgets.QMainWindow):
         uic.loadUi('presensi.ui', self)
 
         self.presensi = presensi.presensi()
+        self.data = Data.data()
+
+
         self.dataui_NIM = []
         self.dataui_Password = []
-        self.show()
-        self.loadkeui()
+        self.saat_ini = []
+        self.path = None
+
+
+        # self.loadkeui()
+        self.loadpreset()
+
+
         self.pushButton_Presensi.clicked.connect(self.thread_presensi)
         self.pushButton_Tambah.clicked.connect(self.tambahrow)
         self.pushButton_Hapus.clicked.connect(self.hapusrow)
 
+        self.comboBox_Preset.activated[str].connect(self.finds)
+
+        self.save = savedata()
+        self.pushButton_Simpan.clicked.connect(self.save.show)
+        self.save.pushButton_OK.clicked.connect(self.simpankecsv)
+
+
+    def simpankecsv(self):
+
+        nama_baru = self.save.textEdit_Nama_File.toPlainText()
+
+        path = "Preset\\"+nama_baru+".csv"
+        self.loadkeprogram()
+        data = self.data.convert(self.dataui_NIM, self.dataui_Password)
+        self.aa = self.data.kecsv(path, data)
+        print(path)
+        self.save.close()
+        self.loadpreset()
+
+    def finds(self):
+        self.saat_ini = str(self.comboBox_Preset.currentText())
+        print(self.saat_ini)
+        if self.saat_ini == "None":
+            self.Tabel_Mahasiswa.setRowCount(0)
+        else:
+            self.path = "Preset\\"+self.saat_ini+".csv"
+            print(self.path)
+            self.loadkeui()
+
+    def loadpreset(self):
+        self.comboBox_Preset.clear()
+        self.data.isipreset()
+        preset = self.data.listpreset
+        print(preset)
+        self.comboBox_Preset.addItem("None")
+        self.comboBox_Preset.addItems(preset)
+
     def loadkeui(self):
 
-        email = self.presensi.email()
-        password = self.presensi.password()
+        email, password = self.data.baca(self.path)
         total = len(email)
         print("data masuk ke UI: ", total)
         self.Tabel_Mahasiswa.setRowCount(total)
@@ -37,6 +95,8 @@ class Ui(QtWidgets.QMainWindow):
         for i in range(row):
             self.dataui_NIM.insert(i, self.Tabel_Mahasiswa.item(i, 0).text())
             self.dataui_Password.insert(i, self.Tabel_Mahasiswa.item(i, 1).text())
+
+
 
     def ambil_link_presensi(self):
         link = self.Text_Edit_Presensi.toPlainText()
@@ -63,9 +123,6 @@ class Ui(QtWidgets.QMainWindow):
             print("nama")
 
             self.presensi.absensi(uty_absen, "inputcode", absensi_kode)
-            berhasil_presensi = QListWidgetItem(str("Berhasil presensi: " + str(NIM_saat_ini)))
-            self.listWidget_Progres.addItem(berhasil_presensi)
-            print("presensi")
 
             self.presensi.alerta()
             alert_box = QListWidgetItem(str(self.presensi.aa))
@@ -101,4 +158,5 @@ class Ui(QtWidgets.QMainWindow):
             self.Tabel_Mahasiswa.removeRow(each_row.row())
 app = QtWidgets.QApplication(sys.argv)
 window = Ui()
+window.show()
 app.exec_()
