@@ -80,39 +80,3 @@ class presensi():
    def keluar(self, url):
       driver.get(url)
 
-   def email(self):
-      email = ["5191011008", "5191011024", "5191011029", "5191011036", "5191011038"]
-      return email
-
-   def password(self):
-      password = ["Mayaltn417#", "220222", "032001", "asdqwe123@@A", "032001"]
-      return password
-
-
-
-#link uty
-uty = "https://sia.uty.ac.id/"
-uty_absen = "https://sia.uty.ac.id/std/scanabsen"
-absensi_kode = "U2FsdGVkX1/GwtyEoM/sPsaZkRGIggHVqK0fbQgNi4D/ujLCDZm8yVbflQF4ZDp9"
-uty_keluar = "https://sia.uty.ac.id/home/keluar"
-
-
-# # nim nama
-# email = ["5191011008", "5191011024", "5191011029", "5191011036", "5191011038"]
-# password = ["Mayaltn417#", "220222", "032001", "asdqwe123@@A", "032001"]
-#
-#
-#
-# mahasiswa = len(email)
-# # fungsi panggil
-#
-# presensi = presensi()
-# for i in range(mahasiswa):
-#    email_saat_ini = email[i]
-#    password_saat_ini = password[i]
-#
-#    presensi.login(uty, "loginNipNim", email_saat_ini, "loginPsw", password_saat_ini, "BtnLogin")
-#    presensi.absensi(uty_absen, "inputcode", absensi_kode)
-#    presensi.alert()
-#    presensi.keluar(uty_keluar)
-#    print("berhasil absen ", email_saat_ini)
