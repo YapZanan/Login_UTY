@@ -85,7 +85,6 @@ class Ui(QtWidgets.QMainWindow):
         nama_baru = self.save.textEdit_Nama_File.toPlainText()
 
         path = "Preset\\"+nama_baru+".csv"
-        print(path)
         self.loadkeprogram()
         data = self.data.convert(self.dataui_NIM, self.dataui_Password)
         self.aa = self.data.kecsv(path, data)
@@ -94,6 +93,8 @@ class Ui(QtWidgets.QMainWindow):
         print(path)
         self.cancel()
         self.loadpreset()
+        aa = self.data.listpreset.index(nama_baru)
+        self.comboBox_Preset.setCurrentIndex(aa)
         self.comboBox_Preset.setCurrentText(nama_baru)
 
     def finds(self):

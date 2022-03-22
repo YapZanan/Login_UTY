@@ -15,7 +15,8 @@ class data():
         # aa = glob.glob(glob.escape(self.path) + "/*.csv")
         aa = os.listdir(self.path)
         print(aa)
-        bb = ([s.strip('.csv') for s in aa])
+        bb = [s.replace(".csv", "") for s in aa]
+        # bb = ([s.strip('.csv') for s in aa])
         print(bb)
         self.listpreset = bb
 
