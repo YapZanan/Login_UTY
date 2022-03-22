@@ -38,8 +38,8 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0" rowspan="3">
      <layout class="QGridLayout" name="Grid_Mahasiswa">
       <item row="1" column="0">
        <widget class="QTableWidget" name="Tabel_Mahasiswa">
@@ -166,151 +166,13 @@
       </item>
      </layout>
     </item>
-    <item row="0" column="1" rowspan="2">
-     <layout class="QGridLayout" name="Grid_Total">
+    <item row="0" column="1">
+     <layout class="QGridLayout" name="Grid_Presensi" rowstretch="0,0" rowminimumheight="0,0">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
       <item row="0" column="0">
-       <layout class="QGridLayout" name="Grid_Presensi" rowstretch="0,0" rowminimumheight="0,0">
-        <property name="sizeConstraint">
-         <enum>QLayout::SetDefaultConstraint</enum>
-        </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="Label_Presensi">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>359</width>
-            <height>19</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>999999</width>
-            <height>19</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto Black</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Link Presensi</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="wordWrap">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QTextEdit" name="Text_Edit_Presensi">
-          <property name="minimumSize">
-           <size>
-            <width>359</width>
-            <height>73</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>99999</width>
-            <height>100</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="contextMenuPolicy">
-           <enum>Qt::PreventContextMenu</enum>
-          </property>
-          <property name="sizeAdjustPolicy">
-           <enum>QAbstractScrollArea::AdjustToContents</enum>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="0">
-       <layout class="QGridLayout" name="Grid_Preset">
-        <item row="1" column="0">
-         <widget class="QComboBox" name="comboBox_Preset">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>359</width>
-            <height>25</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>49</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto Black</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="Label_Preset">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>359</width>
-            <height>19</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>19</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Roboto Black</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Daftar Preset</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="wordWrap">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="pushButton_Simpan">
+       <widget class="QLabel" name="Label_Presensi">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -319,7 +181,145 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>361</width>
+          <width>359</width>
+          <height>19</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>999999</width>
+          <height>19</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto Black</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Link Presensi</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QTextEdit" name="Text_Edit_Presensi">
+        <property name="minimumSize">
+         <size>
+          <width>359</width>
+          <height>73</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>99999</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::PreventContextMenu</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustToContents</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="1">
+     <layout class="QGridLayout" name="Grid_Preset">
+      <item row="1" column="0">
+       <widget class="QComboBox" name="comboBox_Preset">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>359</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>49</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto Black</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="Label_Preset">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>359</width>
+          <height>19</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>19</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto Black</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Daftar Preset</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="wordWrap">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="1" rowspan="2">
+     <layout class="QGridLayout" name="Grid_JSON">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="pushButton_Simpan_CSV">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
           <height>44</height>
          </size>
         </property>
@@ -336,12 +336,12 @@
          </font>
         </property>
         <property name="text">
-         <string>Simpan tabel ke JSON</string>
+         <string>Simpan tabel ke CSV</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QPushButton" name="pushButton_Presensi">
+      <item row="0" column="1">
+       <widget class="QPushButton" name="pushButton_Hapus_CSV">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -350,30 +350,30 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>361</width>
-          <height>43</height>
+          <width>40</width>
+          <height>44</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>57</height>
+          <height>44</height>
          </size>
         </property>
         <property name="font">
          <font>
           <family>Roboto Black</family>
-          <pointsize>15</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>Presensi</string>
+         <string>Hapus CSV</string>
         </property>
        </widget>
       </item>
      </layout>
     </item>
-    <item row="1" column="0">
+    <item row="3" column="0" rowspan="2">
      <layout class="QGridLayout" name="Grid_Tombol">
       <item row="0" column="0">
        <widget class="QPushButton" name="pushButton_Tambah">
@@ -452,7 +452,38 @@
       </item>
      </layout>
     </item>
-    <item row="2" column="0" colspan="2">
+    <item row="4" column="1">
+     <widget class="QPushButton" name="pushButton_Presensi">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>361</width>
+        <height>43</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>57</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Roboto Black</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Presensi</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="2">
      <layout class="QGridLayout" name="Grid_Progres">
       <item row="0" column="0">
        <widget class="QLabel" name="Label_Progres">

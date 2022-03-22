@@ -1,18 +1,24 @@
 from threading import *
 from PyQt5 import QtWidgets, uic
 import sys
-
-from PyQt5.QtCore import Qt, QCoreApplication
-from PyQt5.QtWidgets import QTableWidgetItem, QListWidgetItem, QMainWindow, QWidget, QLabel, QDialog
+from PyQt5.QtWidgets import QTableWidgetItem, QListWidgetItem, QDialog
 import presensi
 import Data
-import json
 
 
 class savedata(QDialog):
     def __init__(self):
         super(savedata, self).__init__()
         uic.loadUi('savedata.ui', self)
+
+    def cancel(self):
+        self.close
+
+
+class konfirmasi(QDialog):
+    def __init__(self):
+        super(konfirmasi, self).__init__()
+        uic.loadUi('konfirmasi.ui', self)
 
     def cancel(self):
         self.close
@@ -43,26 +49,52 @@ class Ui(QtWidgets.QMainWindow):
 
         self.comboBox_Preset.activated[str].connect(self.finds)
 
-        self.save = savedata()
-        self.pushButton_Simpan.clicked.connect(self.save.show)
-        self.save.pushButton_OK.clicked.connect(self.simpankecsv)
 
+
+        #GUI KONFIRMASI HAPUS
+        self.konfirmasii = konfirmasi()
+        self.pushButton_Hapus_CSV.clicked.connect(self.konfirmasii.show)
+        self.konfirmasii.pushButton_Cancel.clicked.connect(self.cancelkonfirmasi)
+        self.konfirmasii.pushButton_OK.clicked.connect(self.hapusCSV)
+
+        #GUI KONFIRMASI SAVE DATA
+        self.save = savedata()
+        self.pushButton_Simpan_CSV.clicked.connect(self.save.show)
+        self.save.pushButton_OK.clicked.connect(self.simpankecsv)
         self.save.pushButton_Cancel.clicked.connect(self.cancel)
+
+
+
+    def hapusCSV(self):
+        print("hapus")
+        # print(self.saat_ini)
+        path = "Preset\\" + self.saat_ini + ".csv"
+        self.data.hapus(path)
+        self.loadpreset()
+        self.cancelkonfirmasi()
+        self.Tabel_Mahasiswa.setRowCount(0)
 
     def cancel(self):
         self.save.close()
+
+    def cancelkonfirmasi(self):
+        self.konfirmasii.close()
 
     def simpankecsv(self):
 
         nama_baru = self.save.textEdit_Nama_File.toPlainText()
 
         path = "Preset\\"+nama_baru+".csv"
+        print(path)
         self.loadkeprogram()
         data = self.data.convert(self.dataui_NIM, self.dataui_Password)
         self.aa = self.data.kecsv(path, data)
+        self.dataui_NIM = []
+        self.dataui_Password = []
         print(path)
         self.cancel()
         self.loadpreset()
+        self.comboBox_Preset.setCurrentText(nama_baru)
 
     def finds(self):
         self.saat_ini = str(self.comboBox_Preset.currentText())

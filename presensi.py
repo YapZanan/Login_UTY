@@ -1,5 +1,3 @@
-from string import digits
-
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
@@ -11,8 +9,12 @@ from selenium.webdriver.chrome.options import Options
 
 options = Options()
 options.headless = True
+options.add_argument("--disable-gpu")
+# options.add_argument("log-level=3")
+# options.add_experimental_option('excludeSwitches', ['enable-logging'])
 driver = webdriver.Chrome(options=options)
 # driver = webdriver.Chrome()
+# driver.HideCommandPromptWindow = True
 
 
 class presensi():
@@ -46,11 +48,9 @@ class presensi():
       z = 0;
       x = daftar_nilai
       jml = len(x)
-
       for i in range(jml):
          y = int(x[i])
          z += y
-
       return z
 
    def ambilnama(self):

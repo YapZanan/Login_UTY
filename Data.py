@@ -1,9 +1,7 @@
 import glob
-
-
-
-
 import csv
+import os
+
 
 class data():
 
@@ -14,14 +12,17 @@ class data():
         self.path = "Preset"
 
     def isipreset(self):
-        aa = glob.glob(glob.escape(self.path) + "/*.csv")
-        bb = ([s.strip('Preset\\') for s in aa])
-        self.listpreset = ([s.strip('.csv') for s in bb])
+        # aa = glob.glob(glob.escape(self.path) + "/*.csv")
+        aa = os.listdir(self.path)
+        print(aa)
+        bb = ([s.strip('.csv') for s in aa])
+        print(bb)
+        self.listpreset = bb
 
     def convert(self, l1, l2):
-        aa = [list(l) for l in zip(l1, l2)]
-        print(aa)
-        return aa
+        convert = [list(l) for l in zip(l1, l2)]
+        print(convert)
+        return convert
 
     def kecsv(self, path, data):
         header = ["NIM", "Password"]
@@ -41,3 +42,6 @@ class data():
         print(NIM)
         print(PW)
         return NIM, PW
+
+    def hapus(self, path):
+        os.remove(path)
