@@ -1,5 +1,9 @@
+altgraph==0.17.2
 async-generator==1.10
 attrs==21.4.0
+auto-py-to-exe==2.18.0
+bottle==0.12.19
+bottle-websocket==0.2.9
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.12
@@ -9,11 +13,19 @@ configparser==5.2.0
 crayons==0.4.0
 cryptography==36.0.2
 docopt==0.6.2
+Eel==0.12.4
+future==0.18.2
+gevent==21.12.0
+gevent-websocket==0.10.1
+greenlet==1.1.2
 h11==0.13.0
 idna==3.3
 outcome==1.1.0
+pefile==2021.9.3
 pipreqs==0.4.11
 pycparser==2.21
+pyinstaller==4.10
+pyinstaller-hooks-contrib==2022.2
 pyOpenSSL==22.0.0
 PyQt5==5.15.4
 pyqt5-plugins==5.15.4.2.2
@@ -24,6 +36,7 @@ PyQt5-stubs==5.15.2.0
 pyqt5-tools==5.15.4.3.2
 PySocks==1.7.1
 python-dotenv==0.19.2
+pywin32-ctypes==0.2.0
 PyYAML==6.0
 qt5-applications==5.15.2.2.2
 qt5-tools==5.15.2.1.2
@@ -35,5 +48,8 @@ trio==0.20.0
 trio-websocket==0.9.2
 urllib3==1.26.9
 webdriver-manager==3.5.3
+whichcraft==0.6.1
 wsproto==1.1.0
 yarg==0.1.9
+zope.event==4.5.0
+zope.interface==5.4.0
